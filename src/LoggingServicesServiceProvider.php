@@ -2,8 +2,8 @@
 
 namespace Dzaki236\LoggingServices;
 
-use Dzaki236\LoggingServices\commands\PublishLoggingServices;
 use Illuminate\Support\ServiceProvider;
+use Dzaki236\LoggingServices\commands\PublishLoggingServices;
 
 class LoggingServicesServiceProvider extends ServiceProvider
 {

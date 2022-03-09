@@ -2,6 +2,7 @@
 
 namespace Dzaki236\LoggingServices\commands;
 
+use Illuminate\Support\Facades\File;
 use Illuminate\Console\Command;
 
 class PublishLoggingServices extends Command
