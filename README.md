@@ -86,7 +86,7 @@ if you want to use a relationship to user on table on your logs table just add b
 ### Version 7+-
 
 ```php
-$ public function user()
+  public function user()
     {
         # code...
         return $this->belongsTo('App\User','user_id');
@@ -96,7 +96,7 @@ $ public function user()
 ### Version 8.x+
 
 ```php
-$ public function user()
+  public function user()
     {
         # code...
         return $this->belongsTo(User::class,'user_id');
@@ -112,7 +112,7 @@ use App\Models\User;
 And use `(eager-loading)` ,example :
 
 ```php
-$ Log::with('user')->all();
+Log::with('user')->all();
 ```
 
 #
