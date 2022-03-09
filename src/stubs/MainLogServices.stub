@@ -41,9 +41,15 @@ class MainLogServices
          $log = $this->logdepedencies;
          $log->msglogs = strtolower($msglogs);
          $log->action = $request->getPathInfo();
-         $log->user_id = Auth::user()->id;
+         // $log->user_id = Auth::user()->id;
+         if (Auth::check()) {
+            # code...
+            $log->user_id = Auth::user()->id;
+         }
+         // $log
          $log->currurl = url()->current();
          $log->useragent = $request->header('User-Agent');
+         $log->connection = $request->header('connection');
          $log->method = $request->method();
          $log->date = date('d-F-Y H:i:s');
          if ($success) {
