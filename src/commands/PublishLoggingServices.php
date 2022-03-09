@@ -54,7 +54,7 @@ class PublishLoggingServices extends Command
          $this->info('model file is published.');
       }
       $services = file_get_contents(__DIR__ . '/../stubs/MainLogServices.stub');
-      $this->createFile(base_path().'/app/Services/LogServices'.DIRECTORY_SEPARATOR.'MainLogServices.php', $services);
+      $this->createFile(base_path().'/app/Services/LogServices',DIRECTORY_SEPARATOR.'MainLogServices.php', $services);
       $this->info('services file is published.');
 
       // $swTemplate = file_get_contents(__DIR__ . '/../stubs/sw.stub');

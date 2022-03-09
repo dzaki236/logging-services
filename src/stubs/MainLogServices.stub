@@ -11,8 +11,8 @@ class MainLogServices{
       $this->logdepedencies;
    }
 
-   public function activitylog(bool $success,string $msglogs,bool $flush = true,bool $namespace = true){
-      if ($namespace) {
+   public function activitylog(bool $success,string $msglogs,bool $flush = true,){
+      if (app()->version() > 8) {
          # code...
          $this->logdepedencies = new \App\Models\Log;
       }else {
