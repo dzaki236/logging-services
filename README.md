@@ -67,6 +67,33 @@ or if you want to reset all of your migrations `(with your data seeder)`,  just 
 $ php artisan migrate:fresh --seed
 ```
 #
+## Relationship `(Optional Part)`
+if you want to use a relationship to user on table on your logs table just add by the following code :
+### Version 7+-
+```
+$ public function user()
+    {
+        # code...
+        return $this->belongsTo('App\User','user_id');
+    }
+```
+### Version 8.x+
+```
+$ public function user()
+    {
+        # code...
+        return $this->belongsTo(User::class,'user_id');
+    }
+```
+dont forget to add this stuff (namespacing) at first line `(before class on model)`: 
+```
+use App\Models\User;
+```
+And use `(eager-loading)` ,example : 
+```
+$ Log::with('user')->all();
+```
+#
 # How To Use?
 first, add `__construct()` line at first of your controller example : `(UserController)`;
 ```
