@@ -70,7 +70,7 @@ $ php artisan migrate:fresh --seed
 ## Relationship `(Optional Part)`
 
 if you want to use a relationship to user on table on your logs table just add by the following code :
-### Version 7+-
+### Version 7+- (app/Log.php)
 
 ```
 $ public function user()
@@ -79,7 +79,7 @@ $ public function user()
         return $this->belongsTo('App\User','user_id');
     }
 ```
-### Version 8.x+
+### Version 8.x+ (app/Models/Log.php)
 ```
 $ public function user()
     {
