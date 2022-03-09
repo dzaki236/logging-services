@@ -1,0 +1,27 @@
+{
+    "name": "dzaki236/logging-services",
+    "description": "Library untuk logging laravel Simple",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Dzaki236\\LoggingServices\\": "src/"
+        }
+    },
+
+    "authors": [{
+        "name": "dzaki236",
+        "email": "dzakiahnafz@gmail.com"
+    }],
+    "keywords": [
+        "logging-services",
+        "logging-laravel",
+        "laravel",
+        "php"
+    ],
+    "require": {
+        "php": ">=7.2.0",
+        "illuminate/support": ">=5.7"
+
+    }
+}
