@@ -87,6 +87,11 @@ $ public function user()
         return $this->belongsTo(User::class,'user_id');
     }
 ```
+dont forget to add this stuff at first line `(before class of model)`: 
+```
+use App\Models\User;
+```
+
 And use by `(eager-loading)` ,example : 
 
 ```
