@@ -68,15 +68,27 @@ $ php artisan migrate:fresh --seed
 ```
 #
 # How To Use?
-first add this line at first of your controller example (UserController);
+first, add `__construct()` line at first of your controller example : `(UserController)`;
 ```
+// use App\Services\LogServices\MainLogServices; // You can use namespacing like this at first line before class on contoller
+
    /**
      * Display a listing of the resource.
      *
      * @return void
      */
-     
     public function __construct(MainLogServices $logs) {
+        $this->loging = $logs;
+    }
+
+    Or, just write the source like this by following code : 
+
+   /**
+     * Display a listing of the resource.
+     *
+     * @return void
+     */
+    public function __construct(\App\Services\LogServices\MainLogServices $logs) {
         $this->loging = $logs;
     }
 ```
