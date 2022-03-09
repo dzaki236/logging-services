@@ -66,7 +66,32 @@ or if you want to reset all of your migrations `(with your data seeder)`,  just 
 ```
 $ php artisan migrate:fresh --seed
 ```
+#
+## Relationship `(Optional Part)
 
+if you want to use a relationship to user on table on your logs table just add by the following code :
+### Version 7+-
+
+```
+$ public function user()
+    {
+        # code...
+        return $this->belongsTo('App\User','user_id');
+    }
+```
+### Version 8.x+
+```
+$ public function user()
+    {
+        # code...
+        return $this->belongsTo(User::class,'user_id');
+    }
+```
+And use by `(eager-loading)` ,example : 
+
+```
+$ Log::wit('user')->all();
+```
 ### License
 
 The MIT License (MIT). Please see [License]() File for more information
