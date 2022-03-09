@@ -66,7 +66,20 @@ or if you want to reset all of your migrations `(with your data seeder)`,  just 
 ```
 $ php artisan migrate:fresh --seed
 ```
-
+#
+# How To Use?
+first add this line at first of your controller example (UserController);
+```
+   /**
+     * Display a listing of the resource.
+     *
+     * @return void
+     */
+     
+    public function __construct(MainLogServices $logs) {
+        $this->loging = $logs;
+    }
+```
 ### License
 
 The MIT License (MIT). Please see [License]() File for more information
