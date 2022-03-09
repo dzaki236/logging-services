@@ -67,7 +67,7 @@ or if you want to reset all of your migrations `(with your data seeder)`,  just 
 $ php artisan migrate:fresh --seed
 ```
 #
-## Relationship `(Optional Part)
+## Relationship `(Optional Part)`
 
 if you want to use a relationship to user on table on your logs table just add by the following code :
 ### Version 7+-
