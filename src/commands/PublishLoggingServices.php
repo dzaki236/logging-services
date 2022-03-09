@@ -38,7 +38,7 @@ class PublishLoggingServices extends Command
       // $publicDir = public_path();
 
       $manifestTemplate = file_get_contents(__DIR__ . '/../stubs/2022_01_01_000000_create_logs_table.stub');
-      $this->createFile(database_path('migrations'),DIRECTORY_SEPARATOR,'2022_01_01_000000_create_logs_table.php',$manifestTemplate);
+      $this->createFile(database_path('migrations'),DIRECTORY_SEPARATOR.'2022_01_01_000000_create_logs_table.php',$manifestTemplate);
       $this->info('migrations file is published.');
 
       // $offlineHtmlTemplate = file_get_contents(__DIR__ . '/../stubs/offline.stub');
