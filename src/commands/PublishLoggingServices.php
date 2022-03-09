@@ -37,13 +37,25 @@ class PublishLoggingServices extends Command
    {
       // $publicDir = public_path();
 
-      $manifestTemplate = file_get_contents(__DIR__ . '/../stubs/2022_01_01_000000_create_logs_table.stub');
-      $this->createFile(database_path('migrations'),DIRECTORY_SEPARATOR.'2022_01_01_000000_create_logs_table.php',$manifestTemplate);
+      $migrations = file_get_contents(__DIR__ . '/../stubs/2022_01_01_000000_create_logs_table.stub');
+      $this->createFile(database_path('migrations'),DIRECTORY_SEPARATOR.'2022_01_01_000000_create_logs_table.php',$migrations);
       $this->info('migrations file is published.');
 
-      // $offlineHtmlTemplate = file_get_contents(__DIR__ . '/../stubs/offline.stub');
-      // $this->createFile($publicDir . DIRECTORY_SEPARATOR, 'offline.html', $offlineHtmlTemplate);
-      // $this->info('offline.html file is published.');
+      if (app()->version() > 8) {
+         # code...
+         $models = file_get_contents(__DIR__ . '/../stubs/ModelsLog.stub');
+         $this->createFile(base_path().'/app/Models',DIRECTORY_SEPARATOR.'Log.php',$models);
+         $this->info('model file is published.');
+      }
+      if (app()->version() < 8) {
+         # code...
+         $models = file_get_contents(__DIR__ . '/../stubs/Log.stub');
+         $this->createFile(base_path().'/app',DIRECTORY_SEPARATOR.'Log.php',$models);
+         $this->info('model file is published.');
+      }
+      $services = file_get_contents(__DIR__ . '/../stubs/MainLogServices.stub');
+      $this->createFile(base_path().'/app/Services/LogServices'.DIRECTORY_SEPARATOR.'MainLogServices.php', $services);
+      $this->info('services file is published.');
 
       // $swTemplate = file_get_contents(__DIR__ . '/../stubs/sw.stub');
       // $this->createFile($publicDir . DIRECTORY_SEPARATOR, 'sw.js', $swTemplate);
