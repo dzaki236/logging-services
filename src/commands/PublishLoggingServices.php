@@ -63,8 +63,10 @@ class PublishLoggingServices extends Command
 
       $this->info('Generating autoload files');
       $this->composer->dumpOptimized();
+      $this->composer->dumpAutoloads();
 
-      $this->info('Greeting!.. Enjoy Logging...');
+      $this->info('Greeting!.. Enjoy...');
+      $this->info('Success!, please run "php artisan migrate" to create table.');
    }
 
    public static function createFile($path, $fileName, $contents)
