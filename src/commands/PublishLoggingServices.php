@@ -1,6 +1,6 @@
 <?php
 
-namespace Dzaki236\LoggingServices\Commands;
+namespace Dzaki236\LoggingServices\commands;
 
 use Illuminate\Console\Command;
 
