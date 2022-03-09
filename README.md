@@ -1,2 +1,2 @@
 # logging-services
-### Package for logging,simple to use!..
+Package for logging,simple to use!..
