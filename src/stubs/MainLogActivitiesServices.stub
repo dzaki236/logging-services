@@ -5,6 +5,7 @@ namespace App\Services\LogActivitiesServices;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Services\LogActivitiesServices\ServicesConfig;
 
 class MainLogActivitiesServices extends ServicesConfig
 {
@@ -12,16 +13,17 @@ class MainLogActivitiesServices extends ServicesConfig
     * Constructor
     * @return void
     */
-   public function __construct()
+   public function __construct(ServicesConfig $conf)
    {
       parent::__construct();
+      $this->limit = $conf->_limit();
    }
 
    /**
     * Get all logs
     * @return void
     */
-   public function activitylog(bool $success, string $msglogs, bool $flush = true):void
+   public function activitylog(bool $success, string $msglogs, bool $flush = true): void
    {
       try {
          //code...
@@ -37,14 +39,6 @@ class MainLogActivitiesServices extends ServicesConfig
          $model = $this->logdepedencies;
          $request = request();
          $total = $model->all();
-         // ($limitflush==null)?$this->limit:$limitflush;
-         if($flush == true){
-            if (count($total) > $this->limit) {
-               # code...
-               // DB::table('log_activities')->truncate();
-               $model->truncate(); //if not working use this
-            }
-         }
          $log = $this->logdepedencies;
          $log->msglogs = strtolower($msglogs);
          $log->action = $request->getPathInfo();
@@ -52,7 +46,7 @@ class MainLogActivitiesServices extends ServicesConfig
             # code...
             $log->user_id = Auth::user()->id;
          }
-         // $log
+
          $log->currurl = url()->current();
          $log->useragent = $request->header('User-Agent');
          $log->connection = $request->header('connection');
@@ -66,6 +60,13 @@ class MainLogActivitiesServices extends ServicesConfig
             $log->status = 'failed';
          }
          $log->save();
+         if ($flush == true) {
+            if (count($total) >= $this->limit) {
+               # code...
+               DB::table('log_activities')->truncate();
+               $model->truncate(); //if not working use this
+            }
+         }
       } catch (\Exception $th) {
          //throw $th;
          // Debug error

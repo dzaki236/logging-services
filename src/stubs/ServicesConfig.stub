@@ -11,7 +11,17 @@ class ServicesConfig{
 
       $this->logdepedencies;
 
-      $this->limit = config('logservice.limit');
+      $this->limit = $this->_limit();
       
    }
+
+   public static function _limit()
+   {
+
+      # code...
+
+      return config('logservices.limit');
+
+   }
+   
 }

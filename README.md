@@ -136,7 +136,7 @@ return [
 First, add `__construct()` line at first of your controller example : `(UserController or whatever Controller it is)`;
 
 ```php
-// use App\Services\LogServices\MainLogActivitiesServices; // You can use namespacing like this at first line before class on contoller
+// use App\Services\LogActivitiesServices\MainLogActivitiesServices; // You can use namespacing like this at first line before class on contoller
 
    /**
      * Display a listing of the resource.
@@ -144,18 +144,24 @@ First, add `__construct()` line at first of your controller example : `(UserCont
      * @return void
      */
     public function __construct(MainLogActivitiesServices $logs) {
-        $this->loging = $logs;
+        ...
+        $this->loging = $logs; // variable name (optional)
+    
     }
 
+    /*
     Or, just write the source like this by following code (without namespacing) :
+    */
 
    /**
      * Display a listing of the resource.
      *
      * @return void
      */
-    public function __construct(\App\Services\LogServices\MainLogActivitiesServices $logs) {
-        $this->loging = $logs;
+    public function __construct(\App\Services\LogActivitiesServices\MainLogActivitiesServices $logs) {
+        ...
+        $this->loging = $logs; // variable name (optional)
+    
     }
 ```
 
