@@ -35,41 +35,40 @@ class PublishLoggingServices extends Command
 
    public function handle()
    {
-      // $publicDir = public_path();
-
+      // Create new Migrations
       $migrations = file_get_contents(__DIR__ . '/../stubs/2022_01_01_000000_create_logs_table.stub');
       $this->createFile(database_path('migrations'),DIRECTORY_SEPARATOR.'2022_01_01_000000_create_logs_table.php',$migrations);
       $this->info('migrations file is published.');
 
+      // Create new Model
       if (app()->version() > 8) {
-         # code...
+         # code for version 8+...
          $models = file_get_contents(__DIR__ . '/../stubs/ModelsLog.stub');
          $this->createFile(base_path().'/app/Models',DIRECTORY_SEPARATOR.'Log.php',$models);
-         $this->info('model file is published.');
+         $this->info('model file is published, check at "app/Models/Log.php".');
       }
+
       if (app()->version() < 8) {
-         # code...
+         # code for version 7+-...
          $models = file_get_contents(__DIR__ . '/../stubs/Log.stub');
          $this->createFile(base_path().'/app',DIRECTORY_SEPARATOR.'Log.php',$models);
-         $this->info('model file is published.');
+         $this->info('model file is published, check at "app/Log.php".');
       }
+
+      // Create new Services
       $services = file_get_contents(__DIR__ . '/../stubs/MainLogServices.stub');
       $this->createFile(base_path().'/app/Services/LogServices',DIRECTORY_SEPARATOR.'MainLogServices.php', $services);
       $this->info('services file is published.');
-
-      // $swTemplate = file_get_contents(__DIR__ . '/../stubs/sw.stub');
-      // $this->createFile($publicDir . DIRECTORY_SEPARATOR, 'sw.js', $swTemplate);
-      // $this->info('sw.js (Service Worker) file is published.');
 
       $this->info('Generating autoload files');
       $this->composer->dumpOptimized();
       $this->composer->dumpAutoloads();
 
       $this->info('Greeting!.. Enjoy...');
-      $this->info('Success!, please run "php artisan migrate" to create table.');
+      $this->info('Success!, please run "php artisan migrate" or "php artisan migrate:fresh --seed" to create new logs table.');
    }
 
-   public static function createFile($path, $fileName, $contents)
+   public static function createFile($path, $fileName, $contents,bool $extends = true)
    {
       if (!file_exists($path)) {
          mkdir($path, 0755, true);
