@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Services\LogServices;
+namespace App\Services\LogActivitiesServices;
 
-// use App\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use ServicesConfig;
 
 class MainLogActivitiesServices extends ServicesConfig
 {
