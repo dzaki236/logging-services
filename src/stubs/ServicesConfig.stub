@@ -1,9 +1,10 @@
 <?php 
+namespace App\Services\LogActivitiesServices;
 class ServicesConfig{
    public $logdepedencies;
    public $limit;
    public function __construct() {
       $this->logdepedencies;
-      $this->limit = config('logservices.limit');
+      $this->limit = config('logservice.limit');
    }
 }
