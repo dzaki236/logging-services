@@ -190,7 +190,7 @@ public function store(Request $request)
 All Function Parameter by the following and fill on this `can't be random fill!!, must be sequential`:
 |#| Parameter | Field | default |description|nullable|
 |:-:| :-: | :-: |:-:|:-:|:-:|
-|1|status| true or false |true|if success parameter set to `true` the result will be `success`,but if `false` then result will be `error`|no|
+|1|status| true or false |true|if success parameter set to `true` the result will be `success`,but if `false` then result will be `failed`|no|
 |2|msglogs|string|string (not nullable) | message logs, write message according to the relevan conditions, but you want to |no|
 |3|flush|true or false|true|if the data is more than equal to 10000 it will be deleted automatically|yes|
 

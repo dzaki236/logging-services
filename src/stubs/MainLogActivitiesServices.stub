@@ -57,7 +57,7 @@ class MainLogActivitiesServices
             $log->status = 'success';
          } else {
             # code...
-            $log->status = 'error';
+            $log->status = 'failed';
          }
          $log->save();
       } catch (\Exception $th) {

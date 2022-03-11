@@ -57,7 +57,7 @@ class PublishLoggingServices extends Command
 
       // Create new Services
       $services = file_get_contents(__DIR__ . '/../stubs/MainLogActivitiesServices.stub');
-      $this->createFile(base_path().'/app/Services/LogServices',DIRECTORY_SEPARATOR.'MainLogActivitiesServices.php', $services);
+      $this->createFile(base_path().'/app/Services/LogActivitiesServices',DIRECTORY_SEPARATOR.'MainLogActivitiesServices.php', $services);
       $this->info('services file is published.');
 
       $this->info('Generating autoload files');
