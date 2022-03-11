@@ -15,15 +15,15 @@ class CreateLogsTable extends Migration
     {
         Schema::create('logs', function (Blueprint $table) {
             $table->id();
-            $table->string('msglogs');
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->string('action');
-            $table->string('status');
-            $table->string('useragent');
-            $table->string('currurl');
-            $table->string('method');
-            $table->string('connection');
-            $table->string('date');
+            $table->string('msglogs'); // Message of log here!.. 
+            $table->unsignedBigInteger('user_id')->nullable();// User id if you want to log by user
+            $table->string('action'); // url action example "/student"
+            $table->string('status'); // if "true" it will be "success", if "false" it will be "Error".
+            $table->string('useragent'); // show the user_agent of your device agent
+            $table->string('currurl'); // full url of logging
+            $table->string('method'); // method request to currurl by logging
+            $table->string('connection'); // default : "keep-alive"
+            $table->string('date'); // date of log (realtime), it will be unaccurated time!.
             $table->timestamps();
         });
     }
