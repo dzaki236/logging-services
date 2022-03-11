@@ -41,15 +41,13 @@ class MainLogActivitiesServices extends ServicesConfig
          if($flush == true){
             if (count($total) > $this->limit) {
                # code...
-               // Log::truncate();
-               DB::table('log_activities')->delete();
-               // $model->truncate(); //if not working use this
+               // DB::table('log_activities')->truncate();
+               $model->truncate(); //if not working use this
             }
          }
          $log = $this->logdepedencies;
          $log->msglogs = strtolower($msglogs);
          $log->action = $request->getPathInfo();
-         // $log->user_id = Auth::user()->id;
          if (Auth::check()) {
             # code...
             $log->user_id = Auth::user()->id;
