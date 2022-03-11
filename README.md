@@ -133,7 +133,7 @@ First, add `__construct()` line at first of your controller example : `(UserCont
         $this->loging = $logs;
     }
 
-    Or, just write the source like this by following code :
+    Or, just write the source like this by following code (without namespacing) :
 
    /**
      * Display a listing of the resource.
