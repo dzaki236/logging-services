@@ -185,7 +185,8 @@ public function store(Request $request)
 
     }
 ```
-
+#
+# Function Parameter
 All Function Parameter by the following and fill on this `can't be random fill!!, must be sequential`:
 |#| Parameter | Field | default |description|nullable|
 |:-:| :-: | :-: |:-:|:-:|:-:|
