@@ -6,7 +6,7 @@ namespace App\Services\LogServices;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class MainLogServices
+class MainLogActivitiesServices
 {
    public $logdepedencies;
    
@@ -22,11 +22,11 @@ class MainLogServices
          if (app()->version() > 8) {
             # code...
             // for laravel 8x+
-            $this->logdepedencies = new \App\Models\Log;
+            $this->logdepedencies = new \App\Models\LogActivity;
          } else {
             # code...
             // for laravel 7x+ or -
-            $this->logdepedencies = new \App\Log;
+            $this->logdepedencies = new \App\LogActivity;
          }
          $model = $this->logdepedencies;
          $request = request();

@@ -1,6 +1,6 @@
 # logging-services
 
-Package for logging,simple to use!..
+Package for logging activities,simple to use!..
 
 ## Installation
 
@@ -71,7 +71,7 @@ if you want to use a table on your logs just run :
 $ php artisan migrate
 ```
 
-or if you want to reset all of your migrations `(with your data seeder)`, just run :
+Or if you want to reset all of your migrations `(with your data seeder)`, just run :
 
 ```bash
 $ php artisan migrate:fresh --seed
@@ -81,7 +81,7 @@ $ php artisan migrate:fresh --seed
 
 ## Relationship `(Optional Part)`
 
-if you want to use a relationship to user on table on your logs table just add by the following code on `Log.php`:
+If you want to use a relationship to user on table on your logs table just add by the following code on `Log.php`:
 
 ### Version 7+-
 
@@ -103,33 +103,33 @@ public function user()
     }
 ```
 
-dont forget to add this stuff (namespacing) at first line `(before class on model)`:
+Don't forget to add this stuff (namespacing) at first line `(before class on model)` on relationship:
 
 ```php
 use App\Models\User;
 ```
 
-And use `(eager-loading)` ,example :
+And then if you want to use `(eager-loading)` ,example on code:
 
 ```php
-Log::with('user')->all();
+LogActivity::with('user')->all();
 ```
 
 #
 
 # How To Use?
 
-first, add `__construct()` line at first of your controller example : `(UserController or whatever Controller it is)`;
+First, add `__construct()` line at first of your controller example : `(UserController or whatever Controller it is)`;
 
 ```php
-// use App\Services\LogServices\MainLogServices; // You can use namespacing like this at first line before class on contoller
+// use App\Services\LogServices\MainLogActivitiesServices; // You can use namespacing like this at first line before class on contoller
 
    /**
      * Display a listing of the resource.
      *
      * @return void
      */
-    public function __construct(MainLogServices $logs) {
+    public function __construct(MainLogActivitiesServices $logs) {
         $this->loging = $logs;
     }
 
@@ -140,7 +140,7 @@ first, add `__construct()` line at first of your controller example : `(UserCont
      *
      * @return void
      */
-    public function __construct(\App\Services\LogServices\MainLogServices $logs) {
+    public function __construct(\App\Services\LogServices\MainLogActivitiesServices $logs) {
         $this->loging = $logs;
     }
 ```
