@@ -117,6 +117,19 @@ LogActivity::with('user')->all();
 
 #
 
+# Change Limit of flush?
+
+Some times you want to custom a value of limit on flushing log,
+On folder `config` in laravel project at `logservices.php`,change by following code `(config/logservices.php)`:
+
+```php
+return [
+   'limit' => 1000, // change this for limit you wnat to flush
+];
+```
+
+#
+
 # How To Use?
 
 First, add `__construct()` line at first of your controller example : `(UserController or whatever Controller it is)`;
@@ -185,14 +198,18 @@ public function store(Request $request)
 
     }
 ```
+
 #
+
 # Function Parameter
+
 All Function Parameter by the following and fill on this `can't be random fill!!, must be sequential`:
-|#| Parameter | Field | default |description|nullable|
-|:-:| :-: | :-: |:-:|:-:|:-:|
-|1|status| true or false |true|if success parameter set to `true` the result will be `success`,but if `false` then result will be `failed`|no|
-|2|msglogs|string|string (not nullable) | message logs, write message according to the relevan conditions, but you want to |no|
-|3|flush|true or false|true|if the data is more than equal to 10000 it will be deleted automatically|yes|
+|#| Parameter | Field | default |description|nullable|must added on parameters|
+|:-:| :-: | :-: |:-:|:-:|:-:|:-:|
+|1|status| true or false |true|if success parameter set to `true` the result will be `success`,but if `false` then result will be `failed`|no|yes|
+|2|msglogs|string|string (not nullable) | message logs, write message according to the relevan conditions, but you want to |no|yes|
+|3|flush|true or false|true|if true it will be activated flush|yes|no, but some case yes|
+|4|limit flush|int (1-n)|1000|if true it will be activated flush|yes|no|
 
 ### License
 

@@ -1,0 +1,9 @@
+<?php 
+class ServicesConfig{
+   public $logdepedencies;
+   public $limit;
+   public function __construct() {
+      $this->logdepedencies;
+      $this->limit = config('logservices.limit');
+   }
+}

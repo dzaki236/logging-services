@@ -5,16 +5,24 @@ namespace App\Services\LogServices;
 // use App\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use ServicesConfig;
 
-class MainLogActivitiesServices
+class MainLogActivitiesServices extends ServicesConfig
 {
-   public $logdepedencies;
-   
+   /**
+    * Constructor
+    * @return void
+    */
    public function __construct()
    {
-      $this->logdepedencies;
+      parent::__construct();
    }
 
+   /**
+    * Get all logs
+    * @return void
+    */
    public function activitylog(bool $success, string $msglogs, bool $flush = true):void
    {
       try {
@@ -30,14 +38,16 @@ class MainLogActivitiesServices
          }
          $model = $this->logdepedencies;
          $request = request();
-         // $total = $this->logdepedencies->all();
          $total = $model->all();
-         if (count($total) > 10000 && $flush == true) {
-            # code...
-            // Log::truncate();
-            $model->truncate();
+         // ($limitflush==null)?$this->limit:$limitflush;
+         if($flush == true){
+            if (count($total) > $this->limit) {
+               # code...
+               // Log::truncate();
+               DB::table('log_activities')->delete();
+               // $model->truncate(); //if not working use this
+            }
          }
-
          $log = $this->logdepedencies;
          $log->msglogs = strtolower($msglogs);
          $log->action = $request->getPathInfo();

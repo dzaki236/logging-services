@@ -37,29 +37,35 @@ class PublishLoggingServices extends Command
    {
       // Create new Migrations
       $migrations = file_get_contents(__DIR__ . '/../stubs/2022_01_01_000000_create_log_activities_table.stub');
-      $this->createFile(database_path('migrations'),DIRECTORY_SEPARATOR.'2022_01_01_000000_create_log_activities_table.php',$migrations);
+      $this->createFile(database_path('migrations'), DIRECTORY_SEPARATOR . '2022_01_01_000000_create_log_activities_table.php', $migrations);
       $this->info('migrations file is published.');
 
       // Create new Model
       if (app()->version() > 8) {
          # code for version 8+...
          $models = file_get_contents(__DIR__ . '/../stubs/ModelsLogActivity.stub');
-         $this->createFile(base_path().'/app/Models',DIRECTORY_SEPARATOR.'LogActivity.php',$models);
+         $this->createFile(base_path() . '/app/Models', DIRECTORY_SEPARATOR . 'LogActivity.php', $models);
          $this->info('model file is published, check at "app/Models/LogActivity.php".');
       }
 
       if (app()->version() < 8) {
          # code for version 7+-...
          $models = file_get_contents(__DIR__ . '/../stubs/LogActivity.stub');
-         $this->createFile(base_path().'/app',DIRECTORY_SEPARATOR.'LogActivity.php',$models);
+         $this->createFile(base_path() . '/app', DIRECTORY_SEPARATOR . 'LogActivity.php', $models);
          $this->info('model file is published, check at "app/LogActivity.php".');
       }
 
-      // Create new Services
+      // Create new Services with extends
+      $config = file_get_contents(__DIR__ . '/../stubs/ServicesConfig.stub');
+      $this->createFile(base_path() . '/app/Services/LogActivitiesServices', DIRECTORY_SEPARATOR . 'ServicesConfig.php', $config);
       $services = file_get_contents(__DIR__ . '/../stubs/MainLogActivitiesServices.stub');
-      $this->createFile(base_path().'/app/Services/LogActivitiesServices',DIRECTORY_SEPARATOR.'MainLogActivitiesServices.php', $services);
+      $this->createFile(base_path() . '/app/Services/LogActivitiesServices', DIRECTORY_SEPARATOR . 'MainLogActivitiesServices.php', $services);
       $this->info('services file is published.');
-
+      
+      $configapp = file_get_contents(__DIR__ . '/../stubs/logservice.stub');
+      $this->createFile(base_path() . '/config',DIRECTORY_SEPARATOR . 'logservice.php', $configapp);
+      $this->info('config file is published.');
+      
       $this->info('Generating autoload files');
       $this->composer->dumpOptimized();
       $this->composer->dumpAutoloads();
@@ -68,7 +74,7 @@ class PublishLoggingServices extends Command
       $this->info('Success!, please run "php artisan migrate" or "php artisan migrate:fresh --seed" to create new logs table.');
    }
 
-   public static function createFile($path, $fileName, $contents,bool $extends = true)
+   public static function createFile($path, $fileName, $contents, bool $extends = true)
    {
       if (!file_exists($path)) {
          mkdir($path, 0755, true);
