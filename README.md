@@ -1,8 +1,8 @@
 # logging-services
 
-Package for logging activities,simple to use!..
+Package for logging activities, Simple to use!..
 
-## Installation
+## Installation Step
 
 Install the package by the following command,
 
