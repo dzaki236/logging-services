@@ -36,27 +36,27 @@ class PublishLoggingServices extends Command
    public function handle()
    {
       // Create new Migrations
-      $migrations = file_get_contents(__DIR__ . '/../stubs/2022_01_01_000000_create_logs_table.stub');
-      $this->createFile(database_path('migrations'),DIRECTORY_SEPARATOR.'2022_01_01_000000_create_logs_table.php',$migrations);
+      $migrations = file_get_contents(__DIR__ . '/../stubs/2022_01_01_000000_create_log_activities_table.stub');
+      $this->createFile(database_path('migrations'),DIRECTORY_SEPARATOR.'2022_01_01_000000_create_log_activities_table.php',$migrations);
       $this->info('migrations file is published.');
 
       // Create new Model
       if (app()->version() > 8) {
          # code for version 8+...
-         $models = file_get_contents(__DIR__ . '/../stubs/ModelsLog.stub');
+         $models = file_get_contents(__DIR__ . '/../stubs/ModelsLogActivity.stub');
          $this->createFile(base_path().'/app/Models',DIRECTORY_SEPARATOR.'Log.php',$models);
          $this->info('model file is published, check at "app/Models/Log.php".');
       }
 
       if (app()->version() < 8) {
          # code for version 7+-...
-         $models = file_get_contents(__DIR__ . '/../stubs/Log.stub');
+         $models = file_get_contents(__DIR__ . '/../stubs/LogActivity.stub');
          $this->createFile(base_path().'/app',DIRECTORY_SEPARATOR.'Log.php',$models);
          $this->info('model file is published, check at "app/Log.php".');
       }
 
       // Create new Services
-      $services = file_get_contents(__DIR__ . '/../stubs/MainLogServices.stub');
+      $services = file_get_contents(__DIR__ . '/../stubs/MainLogActivityServices.stub');
       $this->createFile(base_path().'/app/Services/LogServices',DIRECTORY_SEPARATOR.'MainLogServices.php', $services);
       $this->info('services file is published.');
 
