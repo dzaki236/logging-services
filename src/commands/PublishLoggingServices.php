@@ -44,14 +44,14 @@ class PublishLoggingServices extends Command
       if (app()->version() > 8) {
          # code for version 8+...
          $models = file_get_contents(__DIR__ . '/../stubs/ModelsLogActivity.stub');
-         $this->createFile(base_path().'/app/Models',DIRECTORY_SEPARATOR.'Log.php',$models);
+         $this->createFile(base_path().'/app/Models',DIRECTORY_SEPARATOR.'LogActivity.php',$models);
          $this->info('model file is published, check at "app/Models/Log.php".');
       }
 
       if (app()->version() < 8) {
          # code for version 7+-...
          $models = file_get_contents(__DIR__ . '/../stubs/LogActivity.stub');
-         $this->createFile(base_path().'/app',DIRECTORY_SEPARATOR.'Log.php',$models);
+         $this->createFile(base_path().'/app',DIRECTORY_SEPARATOR.'LogActivity.php',$models);
          $this->info('model file is published, check at "app/Log.php".');
       }
 
