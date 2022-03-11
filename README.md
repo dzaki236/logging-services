@@ -81,7 +81,7 @@ $ php artisan migrate:fresh --seed
 
 ## Relationship `(Optional Part)`
 
-If you want to use a relationship to user on table on your logs table just add by the following code on `Log.php`:
+If you want to use a relationship to user on table on your logs table just add by the following code on `LogActivity.php`:
 
 ### Version 7+-
 
