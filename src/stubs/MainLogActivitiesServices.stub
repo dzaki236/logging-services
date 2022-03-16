@@ -79,7 +79,7 @@ class MainLogActivitiesServices extends ServicesConfig
     * Get flush activated
     * @return bool
     */
-   private function flush_active():bool
+   public function flush_active():bool
    {
 
       return config('logservices.flush');
