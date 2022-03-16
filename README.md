@@ -125,7 +125,8 @@ On folder `config` in laravel project at `logservices.php`,change by following c
 ```php
 return [
     ....
-   'limit' => 1000, // change this for limit you wnat to flush
+   'flush' => TRUE,  // change this for activate / disactivated flush (default = true)
+   'limit' => 1000, // change this for limit you want to flush
 ];
 ```
 
@@ -216,7 +217,7 @@ All Function Parameter by the following and fill on this `can't be random fill!!
 |1|status| true or false |true|if success parameter set to `true` the result will be `success`,but if `false` then result will be `failed`|no|yes|
 |2|msglogs|string|string (not nullable) | message logs, write message according to the relevan conditions, but you want to |no|yes|
 |3|flush|true or false|true|if true it will be activated flush|yes|no, but some case yes|
-|4|limit flush|int (1-n)|1000|if true it will be activated flush|yes|no|
+|4|limit flush|int (1-n)|100|if true it will be activated flush|yes|no|
 
 ### License
 
