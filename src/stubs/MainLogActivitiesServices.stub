@@ -23,7 +23,7 @@ class MainLogActivitiesServices extends ServicesConfig
     * Get all logs
     * @return void
     */
-   public function activitylog(bool $success, string $msglogs, bool $flush = true): void
+   public function activitylog(bool $success, string $msglogs): void
    {
       try {
          //code...
@@ -60,11 +60,12 @@ class MainLogActivitiesServices extends ServicesConfig
             $log->status = 'failed';
          }
          $log->save();
+         $flush = $this->flush_active();
          if ($flush == true) {
             if (count($total) >= $this->limit) {
                # code...
                DB::table('log_activities')->truncate();
-               $model->truncate(); //if not working use this
+               // $model->truncate(); //if not working use this
             }
          }
       } catch (\Exception $th) {
@@ -72,5 +73,16 @@ class MainLogActivitiesServices extends ServicesConfig
          // Debug error
          dd($th);
       }
+   }
+
+   /**
+    * Get flush activated
+    * @return bool
+    */
+   private function flush_active():bool
+   {
+
+      return config('logservices.flush');
+
    }
 }
