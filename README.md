@@ -22,7 +22,7 @@ $ composer dump-autoload
 
 #
 
-## Add Provider
+## Add Provider `(some case it's step is optional)`
 
 Add the provider to your `config/app.php` into `provider` section if using lower version of laravel,
 
