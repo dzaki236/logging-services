@@ -19,7 +19,8 @@
         "laravel",
         "php",
         "log",
-        "php-logging"
+        "php-logging",
+        "laravel-logging"
     ],
     "require": {
         "php": ">=7.2.0",
