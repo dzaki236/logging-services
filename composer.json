@@ -1,6 +1,6 @@
 {
     "name": "dzaki236/logging-services",
-    "description": "Library untuk logging laravel Simple",
+    "description": "Library untuk logging laravel, Simple to use",
     "type": "library",
     "license": "MIT",
     "autoload": {
