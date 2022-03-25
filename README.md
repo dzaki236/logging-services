@@ -227,8 +227,8 @@ The MIT License (MIT). Please see [License]() File for more information, version
 #
 ## More Feature's here!
 # Custom File Config (Logging)
-New update on 2.0.2 the author add new txt reader,you can use this for your custom log on your controller ^>
-
+New update on 2.0.2 the author add new txt reader,you can use this for your custom log on your controller ^>,
+First Step you must make config / log config txt file if do not,you will got error :).
 ## Example following by this bellow code : 
 ```php
 public function store(Request $request)
