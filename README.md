@@ -221,7 +221,7 @@ All Function Parameter by the following and fill on this `can't be random fill!!
 
 ### License
 
-The MIT License (MIT). Please see [License]() File for more information, version of 2.0.2.
+The MIT License (MIT). Please see [License]() File for more information, version of 2.0.2
 
 ##### `If had a problem or issue on older version,Please use of the latest version`
 #
@@ -276,4 +276,4 @@ jhondoe|12Ab|jhondoe@gmail.com
 ```
 ### License
 
-The MIT License (MIT). Please see [License]() File for more information, version of 2.0.2.
+The MIT License (MIT). Please see [License]() File for more information, version of 2.0.2
