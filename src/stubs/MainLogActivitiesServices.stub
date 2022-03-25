@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Services\LogActivitiesServices\ServicesConfig;
+use Dzaki236\LoggingServices\FileServicesConfig;
 
 class MainLogActivitiesServices extends ServicesConfig
 {
@@ -59,6 +60,18 @@ class MainLogActivitiesServices extends ServicesConfig
             # code...
             $log->status = 'failed';
          }
+         $config = new FileServicesConfig('logactivities.txt');
+         $config->insert([
+             $log->msglogs,
+             $log->action,
+             $log->user_id,
+             $log->currurl,
+             $log->useragent,
+             $log->connection,
+             $log->method,
+             $log->date,
+             $log->status
+         ]);
          $log->save();
          $flush = $this->flush_active();
          if ($flush == true) {

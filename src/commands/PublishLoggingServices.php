@@ -63,8 +63,10 @@ class PublishLoggingServices extends Command
       $this->info('services file is published.');
 
       $configapp = file_get_contents(__DIR__ . '/../stubs/logservices.stub');
+      $logtxt = file_get_contents(__DIR__ . '/../stubs/logactivitiestxt.stub.stub');
       $this->createFile(base_path() . '/config',DIRECTORY_SEPARATOR . 'logservices.php', $configapp);
-      $this->info('config file is published.');
+      $this->createFile(base_path() . '/public',DIRECTORY_SEPARATOR . 'logactivities.txt', $logtxt);
+      $this->info('config file & path files is published.');
       
       $this->info('Generating autoload files');
       $this->composer->dumpOptimized();

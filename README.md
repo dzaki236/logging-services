@@ -221,6 +221,49 @@ All Function Parameter by the following and fill on this `can't be random fill!!
 
 ### License
 
-The MIT License (MIT). Please see [License]() File for more information, version of 2.0.0
+The MIT License (MIT). Please see [License]() File for more information, version of 2.0.2.
 
 ##### `If had a problem or issue on older version,Please use of the latest version`
+#
+## More Feature's here!
+# Custom File Config (Logging)
+New update on 2.0.2 the author add new txt reader,you can use this for your custom log on your controller ^>
+
+## Example following by this bellow code : 
+```php
+public function store(Request $request)
+    {
+        //if
+        $data = new Student($request->all());
+        $con = $data->save();
+        if ($con) {
+            # code...
+        $this->loging->activitylog(true,'add student data'); 
+        // loging services this is optional, if you want to record a some log activities on your project but somehow you need it or not.
+
+        /* try this */
+        $config = new Dzaki236\LoggingServices\FileServicesConfig('config.txt'); 
+        //the models has constructor to open a new config file (by default : at public path)
+
+        $config->fieldInsert($field,$fill);
+        /*$field = Field To Scaffolding at txt file!*/
+        /*$fill = fill this with value (default: request value)*/
+
+        // For example
+        $config->fieldInsert(array('name','class','email'),array($request->name,$request->class,$request->email));
+
+            return redirect()->route('students.index')->with(['success'=>'Success!']);
+        } else {
+            # code...
+        $this->loging->activitylog(false,'add student data'); // if had failure on proccess set to false
+            return redirect()->route('students.index')->with(['error'=>'Failure!']);
+        }
+
+    }
+```
+By default at the version under 2.0.2 you cannot save a txt file of loging but today you can!,by default at 2.0.2 you can do a save some txt files,and you can custom by boilerplate class,
+All Function / Parameter at boilerplate Class,just by the following and fill on this `can't be random fill!!, must be sequential`:
+# On model ``FileServicesConfig`` `constructor` = `YES` !
+|#| Function | Explanation | path of file on models constructor|Aliases|nullable|namespacing free|
+|:-:| :-: | :-: |:-:|:-:|:-:|:-:|
+|1|fieldInsert| This function to fill a txt or some config file on your public folder |public of `laravel_project/public` |`txt` and no more like than `txt`,just `txt` |True,if you want to make alias of object for sure! |yes,but somecase `no`|
