@@ -261,8 +261,8 @@ public function store(Request $request)
 
     }
 ```
-By default at the version under 2.0.2 you cannot save a txt file of loging but today you can!,by default at 2.0.2 you can do a save some txt files,and you can custom by boilerplate class,
-All Function / Parameter at boilerplate Class,just by the following and fill on this `can't be random fill!!, must be sequential`:
+By default at the version under 2.0.2 you cannot save a txt file of loging, but today you can!,by default at 2.0.2 you can do a save some txt files,like example author had a input txt file on `logactivities.txt` at public file on laravel project!,but you can custom file or make a new path custom config, by use a boilerplate class construct,
+All Function / Parameter at boilerplate Class,just by the following and see on this `can't be random fill!!, must be sequential`:
 # On model ``FileServicesConfig`` `constructor` = `YES` !
 |#| Function | Explanation | path of file on models constructor|Aliases|nullable|namespacing free|
 |:-:| :-: | :-: |:-:|:-:|:-:|:-:|
