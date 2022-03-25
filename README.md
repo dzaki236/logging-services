@@ -267,3 +267,10 @@ All Function / Parameter at boilerplate Class,just by the following and see on t
 |#| Function | Explanation | path of file on models constructor|Aliases|nullable|namespacing free|
 |:-:| :-: | :-: |:-:|:-:|:-:|:-:|
 |1|fieldInsert| This function to fill a txt or some config file on your public folder |public of `laravel_project/public` |`txt` and no more like than `txt`,just `txt` |True,if you want to make alias of object for sure! |yes,but somecase `no`|
+#
+### On `config.txt` file (example)
+By default maybe you can randomly fields but i dont recomended,at first you must fix,what field you want to fill,by default of your version.
+```txt
+name|class|email
+jhondoe|12Ab|jhondoe@gmail.com
+```
