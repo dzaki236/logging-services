@@ -274,3 +274,6 @@ By default maybe you can randomly fields but i dont recomended,at first you must
 name|class|email
 jhondoe|12Ab|jhondoe@gmail.com
 ```
+### License
+
+The MIT License (MIT). Please see [License]() File for more information, version of 2.0.2.
