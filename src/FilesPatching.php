@@ -3,7 +3,10 @@ namespace Dzaki236\LoggingServices;
 
 class FilesPatching
 {
-   public function fieldInsert(array $fields, array $fill)
+   /**
+    * return @void
+    */
+   public function fieldInsert(array $fields, array $fill):void
    {
       # code...
       $file_ = file(public_path("$this->file"), FILE_IGNORE_NEW_LINES);
@@ -39,7 +42,14 @@ class FilesPatching
          fclose($files);
       }
    }
-   public function insert(array $arr)
+
+   /**
+    * insert data to file
+    * 
+    * return @void
+    * 
+    */
+   public function insert(array $arr):void
    {
       $formats = '';
       foreach ($arr as $key => $value) {
