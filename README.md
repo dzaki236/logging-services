@@ -218,7 +218,7 @@ All Function Parameter by the following and fill on this `can't be random fill!!
 |2|msglogs|string|string (not nullable) | message logs, write message according to the relevan conditions, but you want to |no|yes|
 |3|flush|true or false|true|if true it will be activated flush|yes|no, but some case yes|
 |4|limit flush|int (1-n)|1000|if true it will be activated flush|yes|no, but some case yes|
-
+|5|dump|true or false|true|if true it will be stored to logactivities file |yes|no, but some case maybe you need|
 ### License
 
 The MIT License (MIT). Please see [License]() File for more information, version of 2.0.2

@@ -24,7 +24,7 @@ class MainLogActivitiesServices extends ServicesConfig
     * Get all logs
     * @return void
     */
-   public function activitylog(bool $success, string $msglogs): void
+   public function activitylog(bool $success, string $msglogs,?bool $dump = true): void
    {
       try {
          //code...
@@ -60,18 +60,20 @@ class MainLogActivitiesServices extends ServicesConfig
             # code...
             $log->status = 'failed';
          }
-         $config = new FileServicesConfig('logactivities.txt');
-         $config->insert([
-             $log->msglogs,
-             $log->action,
-             $log->user_id,
-             $log->currurl,
-             $log->useragent,
-             $log->connection,
-             $log->method,
-             $log->date,
-             $log->status
-         ]);
+         if($dump){
+            $config = new FileServicesConfig('logactivities.txt');
+            $config->insert([
+               $log->msglogs,
+               $log->action,
+               $log->user_id,
+               $log->currurl,
+               $log->useragent,
+               $log->connection,
+               $log->method,
+               $log->date,
+               $log->status
+            ]);
+         }
          $log->save();
          $flush = $this->flush_active();
          if ($flush == true) {
