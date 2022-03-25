@@ -8,13 +8,11 @@ class FilesPatching
     */
    public function fieldInsert(array $fields, array $fill):void
    {
-      # code...
+      # for insert by field!
       $file_ = file(public_path("$this->file"), FILE_IGNORE_NEW_LINES);
       if (!isset($file_[0])) {
-         # code...
          $field_ = '';
          foreach ($fields as $key => $field) {
-            # code...
             $field_ .= '|' . $field;
          }
          $field_ = substr($field_, 1);
@@ -23,7 +21,6 @@ class FilesPatching
          fclose($files);
          $format_ = '';
          foreach ($fill as $key => $fills) {
-            # code...
             $format_ .= '|' . $fills;
          }
          $formats_ = "\n" . substr($format_, 1);
