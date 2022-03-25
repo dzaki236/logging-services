@@ -261,7 +261,7 @@ public function store(Request $request)
 
     }
 ```
-By default at the version under 2.0.2 you cannot save a txt file of loging, but today you can!,by default at 2.0.2 you can do a save some txt files,like example author had a input txt file on `logactivities.txt` at public file on laravel project!,but you can custom file or make a new path custom config, by use a boilerplate class construct,
+By default at the version under 2.0.2 you cannot save a txt file of loging, but today you can!,by default at 2.0.2 you allowed to do a save some txt files,like example author had a input txt file on `logactivities.txt` at public file on laravel project!,but you can custom file or make a new path custom config, by use a boilerplate class construct,
 All Function / Parameter at boilerplate Class,just by the following and see on this `can't be random fill!!, must be sequential`:
 # On model ``FileServicesConfig`` `constructor` = `YES` !
 |#| Function | Explanation | path of file on models constructor|Aliases|nullable|namespacing free|
@@ -269,7 +269,7 @@ All Function / Parameter at boilerplate Class,just by the following and see on t
 |1|fieldInsert| This function to fill a txt or some config file on your public folder |public of `laravel_project/public` |`txt` and no more like than `txt`,just `txt` |True,if you want to make alias of object for sure! |yes,but somecase `no`|
 #
 ### On `config.txt` file (example)
-By default maybe you can randomly fields but i dont recomended,at first you must fix,what field you want to fill,by default of your version.
+By default maybe you allowed to randomly fields but not recomended, at first you must fix, what field you want to fill,by default of your version.
 ```txt
 name|class|email
 jhondoe|12Ab|jhondoe@gmail.com
