@@ -243,7 +243,7 @@ public function store(Request $request)
 
         /* try this */
         $config = new Dzaki236\LoggingServices\FileServicesConfig('config.txt'); 
-        //the models has constructor to open a new config file (by default : at public path)
+        // the models allowed a constructor to open a new config file (by default : at public path),jsust following the code.
 
         $config->fieldInsert($field,$fill);
         /*$field = Field To Scaffolding at txt file!*/
