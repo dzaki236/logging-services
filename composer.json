@@ -1,6 +1,6 @@
 {
     "name": "dzaki236/logging-services",
-    "description": "Library untuk logging laravel, Simple to use",
+    "description": "Library for simplemacy logging laravel and manage log txt, Simple to use, based on data",
     "type": "library",
     "license": "MIT",
     "autoload": {
