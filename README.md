@@ -249,8 +249,8 @@ public function store(Request $request)
         /*$field = Field To Scaffolding at txt file!*/
         /*$fill = fill this with value (default: request value)*/
 
-        // For example
-        $config->fieldInsert(array('name','class','email'),array($request->name,$request->class,$request->email));
+        // For example anyway field id you can use at some case!..
+        $config->fieldInsert(array('id','name','class','email'),array($data->id,$request->name,$request->class,$request->email));
 
             return redirect()->route('students.index')->with(['success'=>'Success!']);
         } else {
