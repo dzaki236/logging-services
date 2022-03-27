@@ -242,7 +242,7 @@ public function store(Request $request)
         // loging services this is optional, if you want to record a some log activities on your project but somehow you need it or not.
 
         /* try this */
-        $config = new Dzaki236\LoggingServices\FileServicesConfig('config.txt'); 
+        $config = new \Dzaki236\LoggingServices\FileServicesConfig('config.txt'); 
         // the models allowed a constructor to open a new config file (by default : at public path),jsust following the code.
 
         $config->fieldInsert($field,$fill);
