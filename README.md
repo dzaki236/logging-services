@@ -274,6 +274,37 @@ By default maybe you allowed to randomly fields but not recomended, at first you
 name|class|email
 jhondoe|12Ab|jhondoe@gmail.com
 ```
+
+# Mistake's warning
+Library has own stable test,if got error its maybe must check the code in twice, and now this is example code wrong and true
+```php
+# Wrong code
+
+/*
+* Do not use return something else before library loaded!.
+* just see some an example's here
+*/
+
+# wrong example
+... action ...
+$data = Model::create($request->all());
+return $data;
+$this->logvariables->activitilog(true,'message logs here');
+$files = new \Dzaki236\LoggingServices\FileServicesConfig('vendorlogs.txt');
+$files->fieldInsert(['field1','field2','field3'],[$request->field1,$request->field2,$request->field3]);
+}
+
+# right example
+... action ...
+$data = Model::create($request->all());
+$this->logvariables->activitilog(true,'message logs here');
+$files = new \Dzaki236\LoggingServices\FileServicesConfig('vendorlogs.txt');
+$files->fieldInsert(['field1','field2','field3'],[$request->field1,$request->field2,$request->field3]);
+return $data;
+}
+```
+Closure : ``You must done a some proses and you can return a result of you want``.
+
 ### License
 
 The MIT License (MIT). Please see [License]() File for more information, version of 2.0.2
