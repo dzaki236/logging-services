@@ -242,7 +242,7 @@ public function store(Request $request)
         // loging services this is optional, if you want to record a some log activities on your project but somehow you need it or not.
 
         /* try this */
-        $config = new Dzaki236\LoggingServices\FileServicesConfig('config.txt'); 
+        $config = new \Dzaki236\LoggingServices\FileServicesConfig('config.txt'); 
         // the models allowed a constructor to open a new config file (by default : at public path),jsust following the code.
 
         $config->fieldInsert($field,$fill);
@@ -274,6 +274,37 @@ By default maybe you allowed to randomly fields but not recomended, at first you
 name|class|email
 jhondoe|12Ab|jhondoe@gmail.com
 ```
+
+# Mistake's warning
+Library has own stable test,if got error its maybe must check the code in twice, and now this is example code wrong and true
+```php
+# Wrong code
+
+/*
+* Do not use return something else before library loaded!.
+* just see some an example's here
+*/
+
+# wrong example
+... action ...
+$data = Model::create($request->all());
+return $data;// return some from action
+$this->logvariables->activitilog(true,'message logs here');
+$files = new \Dzaki236\LoggingServices\FileServicesConfig('vendorlogs.txt');
+$files->fieldInsert(['field1','field2','field3'],[$request->field1,$request->field2,$request->field3]);
+}
+
+# right example
+... action ...
+$data = Model::create($request->all());
+$this->logvariables->activitilog(true,'message logs here');
+$files = new \Dzaki236\LoggingServices\FileServicesConfig('vendorlogs.txt');
+$files->fieldInsert(['field1','field2','field3'],[$request->field1,$request->field2,$request->field3]);
+return $data;// return some from action here
+}
+```
+Closure : ``You must done a some proses and you can return a result of you want``.
+
 ### License
 
 The MIT License (MIT). Please see [License]() File for more information, version of 2.0.2
