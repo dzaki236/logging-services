@@ -307,4 +307,4 @@ Closure : ``You must done a some proses and you can return a result of you want`
 
 ### License
 
-The MIT License (MIT). Please see [License]('https://choosealicense.com/licenses/mit/') File for more information, version of 2.0.2
+The MIT License (MIT). Please see [License](https://github.com/dzaki236/logging-services/blob/master/LICENSE) File for more information, version of 2.0.2
