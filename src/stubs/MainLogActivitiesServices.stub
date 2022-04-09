@@ -24,7 +24,7 @@ class MainLogActivitiesServices extends ServicesConfig
     * Get all logs
     * @return void
     */
-   public function activitylog(bool $success, string $msglogs,?bool $dump = true): void
+   public function activitylog(bool $success=true, string $msglogs,?bool $dump = true): void
    {
       try {
          //code...
@@ -50,7 +50,7 @@ class MainLogActivitiesServices extends ServicesConfig
 
          $log->currurl = url()->current();
          $log->useragent = $request->header('User-Agent');
-         $log->connection = $request->header('connection');
+         $log->connection = ($request->header('connection')==null)?'error':'keep-alive';
          $log->method = $request->method();
          $log->date = date('d-F-Y H:i:s');
          if ($success) {
